@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Calendar</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.1/main.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.1/main.min.js"></script>
+    <style>
+        body { margin: 0; padding: 0; font-family: Arial, sans-serif; }
+        #calendar { width: 100%; height: 600px; max-width: 800px; margin: auto; }
+    </style>
+</head>
+<body>
+    <h2 style="text-align: center;">Select a Date for Your Booking</h2>
+    <div id="calendar"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var calendarEl = document.getElementById('calendar');
+
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                height: "auto",
+                selectable: true,
+                dateClick: function(info) {
+                    alert("Selected date: " + info.dateStr);
+                },
+                events: [
+                    { title: 'Available', start: '2025-02-18' },
+                    { title: 'Available', start: '2025-02-26' }
+                ]
+            });
+
+            calendar.render();
+        });
+    </script>
+</body>
+</html>
